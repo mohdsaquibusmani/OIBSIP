@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+</head>
+<body>
+    <form action="/update" method="POST" id="updateForm">
+        <input type="hidden" name="updateTask" value="<%= updateItem %>">
+        <input type="hidden" id="updateName"  value="<%= updateName %>">
+        <input type="hidden" id="updatedInput" name="updatedTask" >
+    </form>
+
+    <script>
+        const a = window.prompt(`Update Task ${document.getElementById('updateName').value} :` );
+        const updatedInput = document.getElementById('updatedInput');
+        
+        // Set the value of the input field with the value of 'a'
+        updatedInput.value = a;
+
+        // Submit the form programmatically
+        document.getElementById('updateForm').submit();
+    </script>
+</body>
+</html>

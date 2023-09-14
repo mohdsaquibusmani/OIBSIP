@@ -1,0 +1,94 @@
+<%- include("header") -%>
+    <h1>TODO List</h1>
+    <div class="container">
+        <div class="child-container">
+            <h2>ToDo</h2>
+            <% for(let i=0;i<items.length;i++){ %>
+                <div class="items">
+                    <form action="/completed" method="post" class="items">
+                        <input onchange="this.form.submit()" type="checkbox" name="completedItem"
+                            value="<%= items[i].id %>" id="<%= items[i].id %>" <% if (items[i].isChecked) { %>checked<%
+                            } %>>
+                            <p>
+                                <%= items[i].item %>
+                            </p>
+
+                            <input type="hidden" name="completedItem" value="<%= items[i].id %>" />
+
+                    </form>
+                    <div class="upDelButton">
+                        <form action="/update-page" method="post" class="updateForm">
+                            <button class="updateButton" type="submit" name="upButtonId" value="<%= items[i].id %>"><i
+                                    class="fa-solid fa-pen" style="color: #000000;"></i></button>
+                            <input type="hidden" name="upButtonName" value="<%= items[i].item %>">
+                        </form>
+                        <form action="/delete" method="post" class="delForm">
+                            <button class="deleteButton" type="submit" name="delButton" value="<%= items[i].id %>"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+                    <form action="/" method="post">
+                        <button class="addButton" name="list" type="submit">+</button>
+                        <input id="myInput" class="newTextField" type="text" name="newItem" placeholder="New Item"
+                            autocomplete="off">
+                    </form>
+        </div>
+        <div class="child-container">
+            <h2>Pending List</h2>
+            <ul>
+                <% for(let i=0;i<items.length;i++){ %>
+                    <% if(!items[i].isChecked){ %>
+                        <li>
+                            <div class="items">
+                                <p>
+                                    <%= items[i].item %>
+                                </p>
+                                <div class="upDelButton">
+                                <form action="/update-page" method="post" class="updateForm">
+                                    <button class="updateButton" type="submit" name="upButtonId" value="<%= items[i].id %>"><i
+                                            class="fa-solid fa-pen" style="color: #000000;"></i></button>
+                                    <input type="hidden" name="upButtonName" value="<%= items[i].item %>">
+                                </form>
+                                <form action="/delete" method="post" class="delForm">
+                                    <button class="deleteButton" type="submit" name="delButton"
+                                        value="<%= items[i].id %>"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                            </div>
+                        </li>
+                        <% } %>
+                            <% } %>
+            </ul>
+        </div>
+        <div class="child-container">
+            <h2>Completed List</h2>
+            <ul>
+                <% for(let i=0;i<items.length;i++){ %>
+                    <% if(items[i].isChecked){ %>
+                        <li>
+                            <div class="items">
+                                <p>
+                                    <%= items[i].item %>
+                                </p>
+                                <div class="upDelButton">
+                                <form action="/update-page" method="post" class="updateForm">
+                                    <button class="updateButton" type="submit" name="upButtonId" value="<%= items[i].id %>"><i
+                                            class="fa-solid fa-pen" style="color: #000000;"></i></button>
+                                    <input type="hidden" name="upButtonName" value="<%= items[i].item %>">
+                                </form>
+                                <form action="/delete" method="post" class="delForm">
+                                    <button class="deleteButton" type="submit" name="delButton"
+                                        value="<%= items[i].id %>"><i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                            </div>
+
+                        </li>
+                        <% } %>
+                            <% } %>
+            </ul>
+        </div>
+    </div>
+    <%- include("footer") -%>

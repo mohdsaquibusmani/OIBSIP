@@ -1,0 +1,112 @@
+
+html {
+    background-color: #952323;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+  }
+h1{
+    text-align: center;
+    color: #F2E8C6;
+    font-weight: 5s00;
+}
+h2{
+    color:black;
+    text-align: center;
+    font-weight: 400;
+    font-style: italic;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    padding:50px;
+    display: grid;
+    grid-template-columns: minmax(200px,290px) minmax(200px,290px) minmax(200px,290px) ;
+    gap:50px;
+}
+.items{
+    display:flex;
+    justify-content: space-between;
+    gap:15px;
+}
+input:checked+p {
+    text-decoration: line-through;
+    text-decoration-color:black;
+  }
+
+  input:focus {
+    outline: none;
+    border: none;
+    border-bottom: #952323 solid 2px;
+}
+p{
+    font-size: 1.3rem;
+    font-family: 'Kalam', cursive;
+    font-weight: 400;
+}
+.child-container{
+    border: solid 2px #DAD4B5;
+    padding: 10px;
+    box-shadow: 5px 5px;
+    background-color: #F2E8C6;
+    border-radius: 10px;
+}
+
+.deleteButton{
+    background: transparent;
+    border: none;
+}
+.deleteButton:hover{
+    cursor: pointer;
+}
+
+.delForm{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.updateForm{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.updateButton{
+    background: transparent;
+    border: none;
+    /* margin-left: 50px; */
+}
+.updateButton:hover{
+    cursor: pointer;
+}
+
+.addButton{
+    background-color: #952323;
+    border-radius: 100%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    color: #F2E8C6;
+    font-size: 1.2rem;
+}
+.addButton:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 2px 2px black;
+    
+}
+
+.newTextField{
+    border:none;
+    border-bottom: #952323 solid 2px;
+    background:none;
+}
+
+.upDelButton{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:5px;
+}
